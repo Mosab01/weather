@@ -1,9 +1,10 @@
 import "./App.css";
 import { useState } from "react";
-import clouds from "./clouds.jpg";
+import clouds from ".images/clouds.jpg";
 
 // var city= document.getElementById("city-name").value;
 var API_KEY = "ab1b212ce4cc6959926569bd71264a61";
+
 
 function App() {
   const [city, setCity] = useState("");
@@ -13,6 +14,8 @@ const set_city = () =>{
   .then(response => response.json())
   .then(json => {
     console.log(json.weather[0].main);
+    console.log(json.main.temp);
+    document.getElementById("temputre").innerHTML = json.main.temp;
   });  
 }
 
@@ -34,14 +37,14 @@ const set_city = () =>{
 
     <div className="weather">
       <div className="city-date">
-      <h1 id="city-name">City Name</h1>
+      <h1 id="city-name">{city}</h1>
       <h2 id="date-time">Mon 12th jan</h2>
       </div>
       <div className="picture">
         <img src={clouds} alt="clouds"/>
       </div>
       <div className="temp">
-        <h1 id="temputre">35<span>°C</span></h1>
+        <h1 id="temputre"><span>°C</span></h1>
       </div>
       <div className="other-weather">
         <button>btn-1</button>
@@ -68,11 +71,15 @@ export default App;
 // "icon":"04d"}],
 
 // "base":"stations",
-// "main":{"temp":282.24,
+
+// "main":{
+// "temp":282.24,
 // "feels_like":280.51,
 // "temp_min":279.82,
 // "temp_max":284.29,
-// "pressure":1023,"humidity":80},
+// "pressure":1023,
+// "humidity":80},
+
 // "visibility":10000,
 // "wind":{"speed":3.09,
 // "deg":220,"gust":8.75},
