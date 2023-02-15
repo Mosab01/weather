@@ -29,7 +29,6 @@ html, body{
 }
 
 .city-date{
-  border: solid 1px;
   width: 100%;
   height: 25%;
   align-items: center; 
@@ -37,7 +36,6 @@ html, body{
 }
 
 .picture{
-  border: solid 1px; 
   width: 100%;
   height: 25%;
 }
@@ -49,26 +47,30 @@ html, body{
 }
 
 .temp{
-  border: solid 1px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   width: 100%;
   height: 25%;
+  font-size: 40px;
 }
 
 .other-weather{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border: solid 1px; 
   width: 100%;
   height: fit-content;
   height: 25%;
 }
 
-.other-weather button{
-  width: 33%;
+.other-weather p{
+  width: 25%;
   height: 100%;
   background-color: transparent;
   font-size: 20px;
-  border: 0;
+  border: 1px solid black;
+  text-align: center;
+  align-items: center;
 }
