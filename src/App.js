@@ -32,8 +32,6 @@ const unix_to_time = (time) =>{
 
   return(formattedTime);
 }
-
-
   return (
     <div className="App">
 
@@ -79,46 +77,4 @@ const unix_to_time = (time) =>{
     </div>
   );
 }
-
-
-
 export default App;
-
-
-// const api_get=
-// {"coord":{"lon":-0.1257,
-// "lat":51.5085},
-
-// "weather":[{"id":804,
-// "main":"Clouds",
-// "description":"overcast clouds",
-// "icon":"04d"}],
-
-// "base":"stations",
-
-// "main":{
-// "temp":282.24,
-// "feels_like":280.51,
-// "temp_min":279.82,
-// "temp_max":284.29,
-// "pressure":1023,
-// "humidity":80},
-
-// "visibility":10000,
-// "wind":{"speed":3.09,
-// "deg":220,"gust":8.75},
-
-// "clouds":{"all":100},
-
-// "dt":1676457152,
-
-// "sys":{"type":2,
-// "id":2075535,
-// "country":"GB",
-// "sunrise":1676445323,
-// "sunset":1676481250},
-
-// "timezone":0,
-// "id":2643743,
-// "name":"London",
-// "cod":200};
