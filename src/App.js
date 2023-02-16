@@ -2,8 +2,6 @@ import "./App.css";
 import { useState } from "react";
 import clouds from "./images/clouds.jpg";
 
-// var city= document.getElementById("city-name").value;
-
 function App() {
   const [city, setCity] = useState("");
 
@@ -11,18 +9,12 @@ const set_city = () =>{
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ab1b212ce4cc6959926569bd71264a61`)
   .then(response => response.json())
   .then(json => {
-
-
-
-    
-    
     document.getElementById("temputre").innerHTML = json.main.temp;
     document.getElementById("city-name").innerHTML = json.name;
     document.getElementById("sun-rise").innerHTML = `Sun-rise = ${unix_to_time(json.sys.sunrise)}`;
     document.getElementById("sun-set").innerHTML = `Sun-set = ${unix_to_time(json.sys.sunset)}`;
     document.getElementById("min-temp").innerHTML = `min temp = ${json.main.temp_min}`;
     document.getElementById("max-temp").innerHTML = `max temp = ${json.main.temp_max}`;
-
   });
 }
 
@@ -45,23 +37,20 @@ const unix_to_time = (time) =>{
   return (
     <div className="App">
 
-            <div className="input-city-name">
-      <input 
-      id='get-city-name'
-      placeholder='City Name'
-      value={city}
-      onChange={(m) => setCity(m.target.value)}
-      />
-      <button id="get-btn"
+      <div className="input-city-name">
+        <input 
+          id='get-city-name'
+          placeholder='City Name'
+          value={city}
+          onChange={(m) => setCity(m.target.value)}
+        />
+        <button id="get-btn"
           alt="search"onClick={() => set_city(city)}>
-            click me
-      </button>
+          click me
+        </button>
       </div>
 
       <div className="weather">
-
-
-
         <div className="city-date">
           <p id="city-name"></p>
           <p id="date-time">Mon 12th jan</p>
