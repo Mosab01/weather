@@ -44,38 +44,48 @@ const unix_to_time = (time) =>{
 
   return (
     <div className="App">
-      <div className="input-city-name">
+
+            <div className="input-city-name">
       <input 
       id='get-city-name'
       placeholder='City Name'
       value={city}
       onChange={(m) => setCity(m.target.value)}
       />
-      <button
+      <button id="get-btn"
           alt="search"onClick={() => set_city(city)}>
             click me
       </button>
       </div>
 
       <div className="weather">
+
+
+
         <div className="city-date">
-          <h1 id="city-name"></h1>
-          <h2 id="date-time">Mon 12th jan</h2>
+          <p id="city-name"></p>
+          <p id="date-time">Mon 12th jan</p>
         </div>
+
         <div className="picture">
           <img id="weather-img" src={clouds} alt="clouds"/>
         </div>
+
         <div className="temp">
           <p id="temputre"></p>
           <p>°C</p>
         </div>
-        <div className="other-weather">
+
+        <div className="sun-time">
           <p id="sun-rise"></p>
           <p id="sun-set"></p>
+        </div>
+
+          <div className="temp-minmax">
           <p id="min-temp"></p>
           <p id="max-temp"></p>
+          </div>
 
-        </div>
       </div>
     </div>
   );
