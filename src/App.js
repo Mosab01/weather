@@ -15,6 +15,7 @@ const set_city = () =>{
     document.getElementById("sun-set").innerHTML = `Sun-set = ${unix_to_time(json.sys.sunset)}`;
     document.getElementById("min-temp").innerHTML = `min temp = ${json.main.temp_min}`;
     document.getElementById("max-temp").innerHTML = `max temp = ${json.main.temp_max}`;
+    console.log(json);
   });
 }
 
