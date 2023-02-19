@@ -1,21 +1,41 @@
 import "./App.css";
 import { useState } from "react";
-import clouds from "./images/clouds.jpg";
 
 function App() {
   const [city, setCity] = useState("");
+
+  const search = document.getElementById("get-city-name");
+  const temp = document.getElementById("temp-text");
+  const cityName = document.getElementById("city-name");
+  const sunRise = document.getElementById("sun-rise");
+  const sunSet = document.getElementById("sun-set");
+  const minTemp = document.getElementById("min-temp");
+  const maxTemp = document.getElementById("max-temp");
+  const weatherMain = document.getElementById("weather-main");
+  const feelsLike = document.getElementById("feels-like");
+  const humidity = document.getElementById("humidity");
+  const weather = document.getElementsByClassName("weather");
 
 const set_city = () =>{
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ab1b212ce4cc6959926569bd71264a61`)
   .then(response => response.json())
   .then(json => {
-    document.getElementById("temputre").innerHTML = json.main.temp;
-    document.getElementById("city-name").innerHTML = json.name;
-    document.getElementById("sun-rise").innerHTML = `Sun-rise = ${unix_to_time(json.sys.sunrise)}`;
-    document.getElementById("sun-set").innerHTML = `Sun-set = ${unix_to_time(json.sys.sunset)}`;
-    document.getElementById("min-temp").innerHTML = `min temp = ${json.main.temp_min}`;
-    document.getElementById("max-temp").innerHTML = `max temp = ${json.main.temp_max}`;
-    console.log(json);
+
+    if (search.value !== "") {
+      weather[0].style.opacity = "1";
+    }
+    else{
+      alert("type a city name");
+    }
+    temp.innerText = `Weather temp: ${json.main.temp}`;
+    cityName.innerText = json.name;
+    sunRise.innerText = `Sun-rise: ${unix_to_time(json.sys.sunrise)}`;
+    sunSet.innerText = `Sun-set: ${unix_to_time(json.sys.sunset)}`;
+    minTemp.innerText = `min temp: ${json.main.temp_min}`;
+    maxTemp.innerText = `max temp: ${json.main.temp_max}`;
+    weatherMain.innerText = `weather state: ${json.weather[0].main}`;
+    feelsLike.innerText = `Feels Like: ${json.main.feels_like}`;
+    humidity.innerText = `Humidity: ${json.main.humidity}`;
   });
 }
 
@@ -35,7 +55,8 @@ const unix_to_time = (time) =>{
 }
   return (
     <div className="App">
-
+      <h1 id="header">Weather Site</h1>
+      <p id="hint">type a city name</p>
       <div className="input-city-name">
         <input 
           id='get-city-name'
@@ -45,7 +66,7 @@ const unix_to_time = (time) =>{
         />
         <button id="get-btn"
           alt="search"onClick={() => set_city(city)}>
-          click me
+          Search
         </button>
       </div>
 
@@ -55,13 +76,11 @@ const unix_to_time = (time) =>{
           <p id="date-time">Mon 12th jan</p>
         </div>
 
-        <div className="picture">
-          <img id="weather-img" src={clouds} alt="clouds"/>
-        </div>
+          <p id="weather-main"></p>
 
-        <div className="temp">
-          <p id="temputre"></p>
-          <p>°C</p>
+        <div className="temputre">
+          <p id="temp-text"></p>
+          <p id="temp-sign">°C</p>
         </div>
 
         <div className="sun-time">
@@ -74,8 +93,60 @@ const unix_to_time = (time) =>{
           <p id="max-temp"></p>
           </div>
 
+          <div className="other">
+          <p id="feels-like"></p>
+          <p id="humidity"></p>
+          </div>
+
       </div>
     </div>
   );
 }
 export default App;
+
+//   {
+//     "coord": {
+//         "lon": 35.2544,
+//         "lat": 32.2211
+//     },
+//     "weather": [
+//         {
+//             "id": 800,
+//             "main": "Clear",
+//             "description": "clear sky",
+//             "icon": "01d"
+//         }
+//     ],
+//     "base": "stations",
+//     "main": {
+//         "temp": 16.03,
+//         "feels_like": 14.58,
+//         "temp_min": 15.57,
+//         "temp_max": 16.03,
+//         "pressure": 1022,
+//         "humidity": 34,
+//         "sea_level": 1022,
+//         "grnd_level": 956
+//     },
+//     "visibility": 10000,
+//     "wind": {
+//         "speed": 1.18,
+//         "deg": 334,
+//         "gust": 1.29
+//     },
+//     "clouds": {
+//         "all": 0
+//     },
+//     "dt": 1676815634,
+//     "sys": {
+//         "type": 2,
+//         "id": 2038108,
+//         "country": "PS",
+//         "sunrise": 1676780295,
+//         "sunset": 1676820468
+//     },
+//     "timezone": 7200,
+//     "id": 282615,
+//     "name": "Nablus",
+//     "cod": 200
+// }
