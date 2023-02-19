@@ -56,7 +56,9 @@ const unix_to_time = (time) =>{
   return (
     <div className="App">
       <h1 id="header">Weather Site</h1>
+
       <p id="hint">type a city name</p>
+
       <div className="input-city-name">
         <input 
           id='get-city-name'
@@ -103,50 +105,3 @@ const unix_to_time = (time) =>{
   );
 }
 export default App;
-
-//   {
-//     "coord": {
-//         "lon": 35.2544,
-//         "lat": 32.2211
-//     },
-//     "weather": [
-//         {
-//             "id": 800,
-//             "main": "Clear",
-//             "description": "clear sky",
-//             "icon": "01d"
-//         }
-//     ],
-//     "base": "stations",
-//     "main": {
-//         "temp": 16.03,
-//         "feels_like": 14.58,
-//         "temp_min": 15.57,
-//         "temp_max": 16.03,
-//         "pressure": 1022,
-//         "humidity": 34,
-//         "sea_level": 1022,
-//         "grnd_level": 956
-//     },
-//     "visibility": 10000,
-//     "wind": {
-//         "speed": 1.18,
-//         "deg": 334,
-//         "gust": 1.29
-//     },
-//     "clouds": {
-//         "all": 0
-//     },
-//     "dt": 1676815634,
-//     "sys": {
-//         "type": 2,
-//         "id": 2038108,
-//         "country": "PS",
-//         "sunrise": 1676780295,
-//         "sunset": 1676820468
-//     },
-//     "timezone": 7200,
-//     "id": 282615,
-//     "name": "Nablus",
-//     "cod": 200
-// }
